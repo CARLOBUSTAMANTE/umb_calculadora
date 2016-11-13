@@ -1,14 +1,14 @@
 package com.example.cbustamante.umb_calculadora;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class main_calculadora extends AppCompatActivity {
 
-    Button btZero, btOne, btTwo, btThree, btFour, btFive, btSix, btSeven,btEight, btNine,btClear, btMultip, btSubst, btSum, btDot, btEqual;
+    Button btZero, btOne, btTwo, btThree, btFour, btFive, btSix, btSeven,btEight, btNine,btClear, btMultip, btSubst, btSum, btDot, btEqual, btDivid;
     EditText etResult, etChain;
     double Value1, Value2, Result;
     String Operator;
@@ -30,6 +30,7 @@ public class main_calculadora extends AppCompatActivity {
         btMultip = (Button) findViewById(R.id.btMultip);
         btSubst = (Button) findViewById(R.id.btSubst);
         btSum = (Button) findViewById(R.id.btSum);
+        btDivid = (Button) findViewById(R.id.btDivid);
         btDot = (Button) findViewById(R.id.btDot);
         btEqual = (Button) findViewById(R.id.btEqual);
         etResult = (EditText) findViewById(R.id.etResult);
@@ -125,6 +126,36 @@ public class main_calculadora extends AppCompatActivity {
                 etResult.setText("");
             }
         });
+
+        btMultip.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Operator = "*";
+                etChain = (EditText) findViewById(R.id.etResult);
+                Value1 = Double.parseDouble(etChain.getText().toString());
+                etResult.setText("");
+            }
+        });
+
+        btDivid.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Operator = "/";
+                etChain = (EditText) findViewById(R.id.etResult);
+                Value1 = Double.parseDouble(etChain.getText().toString());
+                etResult.setText("");
+            }
+        });
+
+        btClear.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Value1 = 0;
+                Value2 = 0;
+                etResult.setText("");
+            }
+        });
+
         btSubst.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -149,6 +180,14 @@ public class main_calculadora extends AppCompatActivity {
                     etResult.setText("");
                     Result = Value1 - Value2;
 
+                }
+                if (Operator.equals ("*")){
+                    etResult.setText("");
+                    Result = Value1 * Value2;
+                }
+                if (Operator.equals("/")){
+                    etResult.setText("");
+                    Result= Value1 / Value2;
                 }
                 etResult.setText(String.valueOf(Result));
             }
