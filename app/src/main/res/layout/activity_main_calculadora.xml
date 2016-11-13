@@ -37,22 +37,6 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/btMultip" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_above="@+id/btSeven"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="50dp"
-        android:id="@+id/etResult"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="36sp"
-        android:background="@android:color/darker_gray"
-        android:textAlignment="viewEnd" />
-
     <Button
         android:text="0"
         android:layout_width="wrap_content"
@@ -184,4 +168,16 @@
         android:layout_above="@+id/btNine"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/etResult"
+        android:textSize="36sp"
+        android:background="@android:color/darker_gray"
+        android:textAlignment="viewEnd"
+        android:layout_above="@+id/btClear"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
