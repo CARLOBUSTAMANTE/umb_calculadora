@@ -8,11 +8,10 @@ import android.widget.EditText;
 
 public class main_calculadora extends AppCompatActivity {
 
-    Button btZero, btOne, btTwo, btThree, btFour, btFive, btSix, btSeven,btEight, btNine,btClear, btMultip, btSubst, btSum, btDot, btEqual, btDivid;
+    Button btZero, btOne, btTwo, btThree, btFour, btFive, btSix, btSeven,btEight, btNine,btClear, btMultip, btSubst, btSum, btDot, btEqual, btDivid, btRaiz, btDelete;
     EditText etResult, etChain;
     double Value1, Value2, Result;
     String Operator;
-    boolean DecimalPoint = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +34,10 @@ public class main_calculadora extends AppCompatActivity {
         btDot = (Button) findViewById(R.id.btDot);
         btEqual = (Button) findViewById(R.id.btEqual);
         etResult = (EditText) findViewById(R.id.etResult);
+        btRaiz = (Button) findViewById(R.id.btRaiz);
+        btDelete = (Button) findViewById(R.id.btDelete);
+
+
         btZero.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -112,14 +115,8 @@ public class main_calculadora extends AppCompatActivity {
         btDot.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
-                if (DecimalPoint == false){
-                    etChain = (EditText)findViewById(R.id.etResult);
-                    etResult.setText(etChain.getText().toString()+".");
-                    DecimalPoint = true;
-                }else{
-                    return;
-                }
+                etChain = (EditText)findViewById(R.id.etResult);
+                etResult.setText(etChain.getText().toString()+".");
             }
         });
 
@@ -130,7 +127,6 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
-                DecimalPoint = false;
             }
         });
 
@@ -141,7 +137,6 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
-                DecimalPoint = false;
             }
         });
 
@@ -152,7 +147,6 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
-                DecimalPoint = false;
             }
         });
 
@@ -162,7 +156,6 @@ public class main_calculadora extends AppCompatActivity {
                 Value1 = 0;
                 Value2 = 0;
                 etResult.setText("");
-                DecimalPoint = false;
             }
         });
 
@@ -173,7 +166,6 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
-                DecimalPoint = false;
             }
         });
 
@@ -204,7 +196,25 @@ public class main_calculadora extends AppCompatActivity {
             }
         });
 
+        btRaiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etResult.setText("");
+                Result = Math.sqrt(Value1);
+                etResult.setText(String.valueOf(Result));
+            }
+        });
 
+        btDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (etResult.getText().length() != 0) {
+                    String completestring = String.valueOf(etResult.getText());
+                    String getUserAnswerString = completestring.substring(0, etResult.getText().length() - 1);
+                    etResult.setText(getUserAnswerString);
+                }
+            }
+        });
 
 
 

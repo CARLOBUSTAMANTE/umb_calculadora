@@ -194,4 +194,20 @@
         android:layout_alignBottom="@+id/btFour"
         android:layout_toEndOf="@+id/btOne"
         android:backgroundTint="@android:color/darker_gray" />
+
+    <Button
+        android:text="√"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etResult"
+        android:layout_toEndOf="@+id/btClear"
+        android:id="@+id/btRaiz" />
+
+    <Button
+        android:text="Del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etResult"
+        android:layout_toEndOf="@+id/btEight"
+        android:id="@+id/btDelete" />
 </RelativeLayout>
