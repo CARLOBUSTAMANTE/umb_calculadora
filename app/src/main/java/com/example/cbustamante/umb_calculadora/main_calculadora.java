@@ -12,6 +12,7 @@ public class main_calculadora extends AppCompatActivity {
     EditText etResult, etChain;
     double Value1, Value2, Result;
     String Operator;
+    boolean DecimalPoint = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,6 @@ public class main_calculadora extends AppCompatActivity {
         btDot = (Button) findViewById(R.id.btDot);
         btEqual = (Button) findViewById(R.id.btEqual);
         etResult = (EditText) findViewById(R.id.etResult);
-
         btZero.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -112,8 +112,14 @@ public class main_calculadora extends AppCompatActivity {
         btDot.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                etChain = (EditText)findViewById(R.id.etResult);
-                etResult.setText(etChain.getText().toString()+".");
+
+                if (DecimalPoint == false){
+                    etChain = (EditText)findViewById(R.id.etResult);
+                    etResult.setText(etChain.getText().toString()+".");
+                    DecimalPoint = true;
+                }else{
+                    return;
+                }
             }
         });
 
@@ -124,6 +130,7 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
+                DecimalPoint = false;
             }
         });
 
@@ -134,6 +141,7 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
+                DecimalPoint = false;
             }
         });
 
@@ -144,6 +152,7 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
+                DecimalPoint = false;
             }
         });
 
@@ -153,6 +162,7 @@ public class main_calculadora extends AppCompatActivity {
                 Value1 = 0;
                 Value2 = 0;
                 etResult.setText("");
+                DecimalPoint = false;
             }
         });
 
@@ -163,6 +173,7 @@ public class main_calculadora extends AppCompatActivity {
                 etChain = (EditText) findViewById(R.id.etResult);
                 Value1 = Double.parseDouble(etChain.getText().toString());
                 etResult.setText("");
+                DecimalPoint = false;
             }
         });
 
